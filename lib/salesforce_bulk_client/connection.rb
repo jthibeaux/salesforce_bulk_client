@@ -62,7 +62,7 @@ class SalesforceBulkClient::Connection
     @http ||= begin
       http = Net::HTTP.new(host, 443)
       http.use_ssl = true
-      # http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+      http.verify_mode = OpenSSL::SSL::VERIFY_NONE
       http
     end
   end
