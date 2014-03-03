@@ -79,7 +79,7 @@ class SalesforceBulkClient::Api::Xml
   def transform_salesforce_bad_batch(data)
     {
       state: data['state'][0],
-      state_message : data['stateMessage'][0]
+      state_message: data['stateMessage'][0]
     }
   end
 
@@ -110,7 +110,7 @@ class SalesforceBulkClient::Api::Xml
 
   def transform_batch_result(data)
     return transform_salesforce_exception(data) if salesforce_exception?(data)
-    return transform_salesforce_bad_batch(data) if !data['result']
+    return transform_salesforce_bad_batch(data) unless data['result']
 
     results = data['result'].map do |batch_info|
       result = {}
