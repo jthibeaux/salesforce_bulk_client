@@ -13,7 +13,7 @@ describe SalesforceBulkClient::Job do
   describe '#create' do
     let(:operation) { 'upsert' }
     let(:object_type) { 'Account' }
-    let(:path) { '/services/async/v29.0/job' }
+    let(:path) { '/services/async/29.0/job' }
     let(:request_body) do
       <<-XML
 <?xml version="1.0" encoding="UTF-8"?>
@@ -65,7 +65,7 @@ describe SalesforceBulkClient::Job do
     end
 
     describe '#close' do
-      let(:path) { "/services/async/v29.0/job/#{job_id}" }
+      let(:path) { "/services/async/29.0/job/#{job_id}" }
       let(:request_body) do
         <<-XML
 <?xml version="1.0" encoding="UTF-8"?>
@@ -101,7 +101,7 @@ describe SalesforceBulkClient::Job do
     end
 
     describe '#update' do
-      let(:path) { "/services/async/v29.0/job/#{job_id}" }
+      let(:path) { "/services/async/29.0/job/#{job_id}" }
       let(:response_body) do
         <<-XML
 <?xml version="1.0" encoding="UTF-8"?>
@@ -127,7 +127,7 @@ describe SalesforceBulkClient::Job do
     end
 
     describe '#add_batch' do
-      let(:path) { "/services/async/v29.0/job/#{job_id}/batch" }
+      let(:path) { "/services/async/29.0/job/#{job_id}/batch" }
       let(:records) do
         [
           {
@@ -199,7 +199,7 @@ describe SalesforceBulkClient::Job do
       end
 
       describe '#update_batches' do
-        let(:path) { "/services/async/v29.0/job/#{job_id}/batch" }
+        let(:path) { "/services/async/29.0/job/#{job_id}/batch" }
         let(:response_body) do
           <<-XML
 <?xml version="1.0" encoding="UTF-8"?>
@@ -305,7 +305,7 @@ describe SalesforceBulkClient::Job do
           ]
         end
         let(:path) do
-          "/services/async/v29.0/job/#{job_id}/batch/#{batch_id}/result"
+          "/services/async/29.0/job/#{job_id}/batch/#{batch_id}/result"
         end
         let(:response_body) do
           <<-XML

@@ -25,6 +25,6 @@ class SalesforceBulkClient::Api::Paths
   end
 
   def root
-    "/services/async/v#{@version}"
+    "/services/async/#{@version}"
   end
 end
