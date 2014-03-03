@@ -76,6 +76,13 @@ class SalesforceBulkClient::Api::Xml
     }
   end
 
+  def transform_salesforce_bad_batch(data)
+    {
+      exception_code: data['state'][0],
+      exception_message: data['stateMessage'][0]
+    }
+  end
+
   def transform_job_info(data)
     return transform_salesforce_exception(data) if salesforce_exception?(data)
     {
@@ -103,6 +110,8 @@ class SalesforceBulkClient::Api::Xml
 
   def transform_batch_result(data)
     return transform_salesforce_exception(data) if salesforce_exception?(data)
+    return transform_salesforce_bad_batch(data) if !data['result']
+
     results = data['result'].map do |batch_info|
       result = {}
       batch_info.keys.each do |key|
