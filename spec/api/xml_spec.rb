@@ -25,8 +25,8 @@ describe SalesforceBulkClient::Api::Xml do
 <jobInfo xmlns="http://www.force.com/2009/06/asyncapi/dataload">
 <operation>upsert</operation>
 <object>Thing</object>
-<contentType>XML</contentType>
 <externalIdFieldName>xfield</externalIdFieldName>
+<contentType>XML</contentType>
 </jobInfo>
         XML
       end

@@ -15,7 +15,7 @@ class SalesforceBulkClient::Api::Xml
 <jobInfo xmlns="#{self.class.xmlns}">
 <operation>#{operation}</operation>
 <object>#{object_type}</object>
-<contentType>XML</contentType>#{external_field_xml(external_field)}
+#{external_field_xml(external_field)}<contentType>XML</contentType>
 </jobInfo>
     XML
   end
@@ -62,7 +62,7 @@ class SalesforceBulkClient::Api::Xml
 
   def external_field_xml(external_field)
     return '' unless external_field
-    "\n<externalIdFieldName>#{external_field}</externalIdFieldName>"
+    "<externalIdFieldName>#{external_field}</externalIdFieldName>\n"
   end
 
   def salesforce_exception?(data)
