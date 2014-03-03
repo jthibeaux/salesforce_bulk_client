@@ -78,8 +78,8 @@ class SalesforceBulkClient::Api::Xml
 
   def transform_salesforce_bad_batch(data)
     {
-      exception_code: data['state'][0],
-      exception_message: data['stateMessage'][0]
+      state: data['state'][0],
+      state_message : data['stateMessage'][0]
     }
   end
 
