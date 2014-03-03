@@ -292,6 +292,57 @@ describe SalesforceBulkClient::Job do
           end
         end
       end
+
+      describe '#all_batch_results' do
+        let(:batch_id) { '751D0000000004rIAA' }
+        let(:batches) do
+          [
+            {
+              id: batch_id,
+              state: 'Completed',
+              num_records_processed: 2,
+            }
+          ]
+        end
+        let(:path) do
+          "/services/async/v29.0/job/#{job_id}/batch/#{batch_id}/result"
+        end
+        let(:response_body) do
+          <<-XML
+<?xml version="1.0" encoding="UTF-8"?>
+<results xmlns="http://www.force.com/2009/06/asyncapi/dataload">
+<result>
+<id>001D000000ISUr3IAH</id><success>true</success><created>true</created>
+</result>
+<result>
+<id>001D000000ISUr4IAH</id><success>true</success><created>true</created>
+</result>
+</results>
+          XML
+        end
+
+        it 'should get the appropriate url and return batch results' do
+          stub_request(:get, url).to_return(body: response_body)
+          expect(subject.all_batch_results).to eq(
+            batches: [
+              {
+                results: [
+                  {
+                    id: '001D000000ISUr3IAH',
+                    success: 'true',
+                    created: 'true',
+                  },
+                  {
+                    id: '001D000000ISUr4IAH',
+                    success: 'true',
+                    created: 'true',
+                  }
+                ]
+              }
+            ]
+          )
+        end
+      end
     end
   end
 end

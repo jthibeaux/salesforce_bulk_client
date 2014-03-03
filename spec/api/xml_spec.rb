@@ -159,7 +159,7 @@ describe SalesforceBulkClient::Api::Xml do
     end
   end
 
-  describe '#parse_batch_results' do
+  describe '#parse_batch_result' do
     let(:xml) do
       <<-XML
 <?xml version="1.0" encoding="UTF-8"?>
@@ -175,7 +175,7 @@ describe SalesforceBulkClient::Api::Xml do
     end
 
     it 'returns batch info array' do
-      expect(subject.parse_batch_results(xml)).to eq(
+      expect(subject.parse_batch_result(xml)).to eq(
         results: [
           {
             id: '001D000000ISUr3IAH',

@@ -69,6 +69,13 @@ class SalesforceBulkClient::Job
     @batches.length == completed_batches.length
   end
 
+  def all_batch_results
+    batches = @batches.map do |batch_info|
+      batch_result(batch_info[:id])
+    end
+    { batches: batches }
+  end
+
   private
 
   def raise_if_exception(info)
@@ -84,5 +91,14 @@ class SalesforceBulkClient::Job
 
   def batch_completed?(batch_info)
     !%w(Queued InProgress).include?(batch_info[:state])
+  end
+
+  def batch_result(batch_id)
+    response = connection.get(
+      api.paths.batch_result(id, batch_id)
+    )
+    info = api.xml.parse_batch_result(response.body)
+    raise_if_exception(info)
+    info
   end
 end

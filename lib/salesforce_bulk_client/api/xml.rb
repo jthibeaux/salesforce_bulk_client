@@ -53,9 +53,9 @@ class SalesforceBulkClient::Api::Xml
     transform_batches(parsed)
   end
 
-  def parse_batch_results(xml)
+  def parse_batch_result(xml)
     parsed = XmlSimple.xml_in(xml)
-    transform_batch_results(parsed)
+    transform_batch_result(parsed)
   end
 
   protected
@@ -101,7 +101,7 @@ class SalesforceBulkClient::Api::Xml
     { batches: batches }
   end
 
-  def transform_batch_results(data)
+  def transform_batch_result(data)
     return transform_salesforce_exception(data) if salesforce_exception?(data)
     results = data['result'].map do |batch_info|
       result = {}
