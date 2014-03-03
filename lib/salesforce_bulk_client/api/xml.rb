@@ -128,7 +128,7 @@ class SalesforceBulkClient::Api::Xml
       'NoAttr' => true,
       'RootName' => 'sObject',
       'NoIndent' => true,
-      'SuppressEmpty' => ''
+      'SuppressEmpty' => nil,
     )
   end
 
