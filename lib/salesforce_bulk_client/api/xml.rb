@@ -127,7 +127,9 @@ class SalesforceBulkClient::Api::Xml
       record,
       'NoAttr' => true,
       'RootName' => 'sObject',
-      'NoIndent' => true)
+      'NoIndent' => true,
+      'SuppressEmpty' => ''
+    )
   end
 
   def batch_records(records)
