@@ -13,7 +13,7 @@ describe SalesforceBulkClient::Connection do
     it 'posts xml with appropriate headers' do
       stub_request(:post, "https://#{host}:443#{path}").with(
         headers: {
-          'Content-Type' => 'application/xml',
+          'Content-Type' => 'application/xml; charset=utf-8',
           'X-SFDC-Session' => session_id,
         },
         body: xml
@@ -24,7 +24,7 @@ describe SalesforceBulkClient::Connection do
     it 'retries multiple times when connection times out' do
       stub_request(:post, "https://#{host}:443#{path}").with(
         headers: {
-          'Content-Type' => 'application/xml',
+          'Content-Type' => 'application/xml; charset=utf-8',
           'X-SFDC-Session' => session_id,
         },
         body: xml,
@@ -39,7 +39,7 @@ describe SalesforceBulkClient::Connection do
     it 'retries multiple times when connection is reset' do
       stub_request(:post, "https://#{host}:443#{path}").with(
         headers: {
-          'Content-Type' => 'application/xml',
+          'Content-Type' => 'application/xml; charset=utf-8',
           'X-SFDC-Session' => session_id,
         },
         body: xml,

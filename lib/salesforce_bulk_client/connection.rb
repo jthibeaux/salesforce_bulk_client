@@ -47,7 +47,7 @@ class SalesforceBulkClient::Connection
   def try_post_xml(path, xml)
     post = Net::HTTP::Post.new(path)
     post['X-SFDC-Session'] = session_id
-    post['Content-Type'] = 'application/xml'
+    post['Content-Type'] = 'application/xml; charset=utf-8'
     post.body = xml
     http.request(post)
   end
