@@ -80,7 +80,7 @@ class SalesforceBulkClient::Job
 
   def raise_if_exception(info)
     raise(
-      Error::Salesforce,
+      SalesforceBulkClient::Error::Salesforce,
       "#{info[:exception_message]} (#{info[:exception_code]})"
     ) if info[:exception_code]
   end
