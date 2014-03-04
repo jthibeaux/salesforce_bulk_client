@@ -1,4 +1,4 @@
-[![Code Climate](https://codeclimate.com/github/jthibeaux/salesforce_bulk_client.png)](https://codeclimate.com/github/jthibeaux/salesforce_bulk_client)
+[![Code Climate](https://codeclimate.com/github/jthibeaux/salesforce_bulk_client.png)](https://codeclimate.com/github/jthibeaux/salesforce_bulk_client) ![CircleCI](https://circleci.com/gh/:owner/:repo.png?circle-token=:circle-token)
 
 # SalesforceBulkClient
 
