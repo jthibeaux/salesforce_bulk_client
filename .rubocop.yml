@@ -1,0 +1,15 @@
+AllCops:
+  Excludes:
+    - vendor/**
+
+TrailingComma:
+  Enabled: false
+
+Documentation:
+  Enabled: false
+
+SignalException:
+  EnforcedStyle: only_raise
+
+ClassLength:
+  Max: 125
