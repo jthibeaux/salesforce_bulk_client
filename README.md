@@ -1,3 +1,5 @@
+[![Code Climate](https://codeclimate.com/github/jthibeaux/salesforce_bulk_client.png)](https://codeclimate.com/github/jthibeaux/salesforce_bulk_client)
+
 # SalesforceBulkClient
 
 Gem to perform data uploads using the Salesforce Bulk API.
