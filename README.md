@@ -2,7 +2,7 @@
 
 # SalesforceBulkClient
 
-Gem to perform data uploads using the Salesforce Bulk API.
+Gem to perform data uploads using the Salesforce Bulk API. This library is only intended to support the bulk API, so salesforce authentication will need to be handled independently (we use the [databasedotcom](https://github.com/heroku/databasedotcom) gem)
 
 ## Installation
 
@@ -20,7 +20,17 @@ Or install it yourself as:
 
 ## Usage
 
-Work in progress...
+A simplistic usage example of usage is below.
+
+    connection = SalesforceBulkClient::Connection.new(instance_host, salesforce_client.oauth_token)
+    api = SalesforceBulkClient::Api.new('23.0')
+    job = SalesforceBulkClient::Job.new(api, connection)
+    job.create('upsert', 'Account', 'SomeExternalId')
+    job.add_batch(<array of hashes>)
+    job.close
+    job.update_batches
+    if (job.all_batches_completed?)
+      batch_results = job.all_batch_results[:batches][0]
 
 ## Contributing
 
