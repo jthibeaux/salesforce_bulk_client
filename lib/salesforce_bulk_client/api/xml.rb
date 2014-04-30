@@ -32,7 +32,7 @@ class SalesforceBulkClient::Api::Xml
   def add_batch(records)
     <<-XML
 #{self.class.xmlheader}
-<sObjects xmlns="#{self.class.xmlns}">
+<sObjects xmlns="#{self.class.xmlns}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 #{batch_records(records)}
 </sObjects>
     XML

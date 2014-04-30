@@ -71,7 +71,9 @@ describe SalesforceBulkClient::Api::Xml do
       let(:records) do
         [
           {
+            a: 'x',
             nope: nil,
+            b: 'y',
           },
         ]
       end
@@ -79,7 +81,7 @@ describe SalesforceBulkClient::Api::Xml do
         expect(subject.add_batch(records)).to eq <<-XML
 <?xml version=\"1.0\" encoding=\"UTF-8\"?>
 <sObjects xmlns=\"http://www.force.com/2009/06/asyncapi/dataload\">
-<sObject><nope xsi:nil="true" /></sObject>
+<sObject><a>x</a><nope xsi:nil="true" /><b>y</b></sObject>
 </sObjects>
         XML
       end
