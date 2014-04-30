@@ -60,8 +60,8 @@ describe SalesforceBulkClient::Api::Xml do
 
     it 'returns xml formatted correctly for batch' do
       expect(subject.add_batch(records)).to eq <<-XML
-<?xml version=\"1.0\" encoding=\"UTF-8\"?>
-<sObjects xmlns=\"http://www.force.com/2009/06/asyncapi/dataload\">
+<?xml version="1.0" encoding="UTF-8"?>
+<sObjects xmlns="http://www.force.com/2009/06/asyncapi/dataload" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 <sObject><a>x</a><b>y</b></sObject><sObject><a>x2</a><b>y2</b></sObject>
 </sObjects>
       XML
@@ -79,8 +79,8 @@ describe SalesforceBulkClient::Api::Xml do
       end
       it 'returns xml formatted correctly for batch' do
         expect(subject.add_batch(records)).to eq <<-XML
-<?xml version=\"1.0\" encoding=\"UTF-8\"?>
-<sObjects xmlns=\"http://www.force.com/2009/06/asyncapi/dataload\">
+<?xml version="1.0" encoding="UTF-8"?>
+<sObjects xmlns="http://www.force.com/2009/06/asyncapi/dataload" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 <sObject><a>x</a><nope xsi:nil="true" /><b>y</b></sObject>
 </sObjects>
         XML

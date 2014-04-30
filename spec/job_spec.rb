@@ -143,7 +143,7 @@ describe SalesforceBulkClient::Job do
       let(:request_body) do
         <<-XML
 <?xml version="1.0" encoding="UTF-8"?>
-<sObjects xmlns="http://www.force.com/2009/06/asyncapi/dataload">
+<sObjects xmlns="http://www.force.com/2009/06/asyncapi/dataload" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 <sObject><x>a</x><y>b</y></sObject><sObject><x>c</x><y>d</y></sObject>
 </sObjects>
         XML

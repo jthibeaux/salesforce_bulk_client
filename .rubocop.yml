@@ -13,3 +13,6 @@ SignalException:
 
 ClassLength:
   Max: 125
+
+LineLength:
+  Enabled: false
