@@ -122,10 +122,22 @@ class SalesforceBulkClient::Api::Xml
     { results: results }
   end
 
+  def nil_attributes(record)
+    with_nils = record.clone
+    with_nils.keys.each do |k|
+      if with_nils[k].nil?
+        with_nils[k] = {
+          '@xsi:nil' => true
+        }
+      end
+    end
+    with_nils
+  end
+
   def batch_record(record)
     XmlSimple.xml_out(
-      record,
-      'NoAttr' => true,
+      nil_attributes(record),
+      'AttrPrefix' => true,
       'RootName' => 'sObject',
       'NoIndent' => true,
       'SuppressEmpty' => nil,

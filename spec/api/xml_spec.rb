@@ -66,6 +66,24 @@ describe SalesforceBulkClient::Api::Xml do
 </sObjects>
       XML
     end
+
+    context 'batch includes nil values' do
+      let(:records) do
+        [
+          {
+            nope: nil,
+          },
+        ]
+      end
+      it 'returns xml formatted correctly for batch' do
+        expect(subject.add_batch(records)).to eq <<-XML
+<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+<sObjects xmlns=\"http://www.force.com/2009/06/asyncapi/dataload\">
+<sObject><nope xsi:nil="true" /></sObject>
+</sObjects>
+        XML
+      end
+    end
   end
 
   describe '#parse_job_info' do
