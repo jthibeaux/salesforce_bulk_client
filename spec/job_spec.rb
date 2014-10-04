@@ -245,7 +245,7 @@ describe SalesforceBulkClient::Job do
       describe '#all_batches_completed?' do
         context 'all batches are Queued' do
           it 'returns false' do
-            expect(subject.all_batches_completed?).to be_false
+            expect(subject).not_to be_all_batches_completed
           end
         end
 
@@ -254,7 +254,7 @@ describe SalesforceBulkClient::Job do
           let(:state2) { 'InProgress' }
 
           it 'returns false' do
-            expect(subject.all_batches_completed?).to be_false
+            expect(subject).not_to be_all_batches_completed
           end
         end
 
@@ -262,7 +262,7 @@ describe SalesforceBulkClient::Job do
           let(:state1) { 'Completed' }
           context 'only 1' do
             it 'returns false' do
-              expect(subject.all_batches_completed?).to be_false
+              expect(subject).not_to be_all_batches_completed
             end
           end
 
@@ -270,7 +270,7 @@ describe SalesforceBulkClient::Job do
             let(:state2) { 'Completed' }
 
             it 'returns true' do
-              expect(subject.all_batches_completed?).to be_true
+              expect(subject).to be_all_batches_completed
             end
           end
         end
@@ -279,7 +279,7 @@ describe SalesforceBulkClient::Job do
           let(:state1) { 'Failed' }
           context 'only 1' do
             it 'returns false' do
-              expect(subject.all_batches_completed?).to be_false
+              expect(subject).not_to be_all_batches_completed
             end
           end
 
@@ -287,7 +287,7 @@ describe SalesforceBulkClient::Job do
             let(:state2) { 'Failed' }
 
             it 'returns true' do
-              expect(subject.all_batches_completed?).to be_true
+              expect(subject).to be_all_batches_completed
             end
           end
         end
