@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = SalesforceBulkClient::VERSION
   spec.authors       = ['Jeremy Thibeaux']
   spec.email         = ['jthibeaux@gmail.com']
-  spec.summary       = %q{Simple client for Salesforce Bulk API usage}
-  spec.description   = %q{Intended for basic usage of the Salesforce Bulk API}
+  spec.summary       = 'Simple client for Salesforce Bulk API usage'
+  spec.description   = 'Intended for basic usage of the Salesforce Bulk API'
   spec.homepage      = ''
   spec.license       = 'MIT'
 

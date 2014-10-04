@@ -5,6 +5,3 @@ Bundler.setup
 require 'webmock/rspec'
 
 require 'salesforce_bulk_client' # and any other gems you need
-
-RSpec.configure do |config|
-end
